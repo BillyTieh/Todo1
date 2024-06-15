@@ -1,0 +1,55 @@
+﻿@model PIP_Todo1.Models.UserInfoViewModel
+@{
+    ViewBag.Title = "員工詳細資料";
+}
+
+<h2>員工詳細資料</h2>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserID, "員工編號")
+        @Html.TextBoxFor(model => model.UserID, new { @class = "form-control", @readonly = "readonly" })     
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserNameEN, "員工英文姓名")
+        @Html.TextBoxFor(model => model.UserNameEN, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, "職位")
+        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, "電子郵件")
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address, "地址")
+        @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TeamID, "團隊編號")
+        @Html.TextBoxFor(model => model.TeamID, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TeamName, "團隊名稱")
+        @Html.TextBoxFor(model => model.TeamName, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CreateDT, "建立日期")
+        @Html.TextBoxFor(model => model.CreateDT, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UpdateDT, "更新日期")
+        @Html.TextBoxFor(model => model.UpdateDT, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+
+@Html.ActionLink("返回列表", "Userlist", "UserInfo")
+
+

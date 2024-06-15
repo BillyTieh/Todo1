@@ -1,0 +1,85 @@
+﻿@model List<PIP_Todo1.Models.UserInfoViewModel>
+@{
+    ViewBag.Title = "員工資料清單";
+}
+
+<h2>員工資料清單</h2>
+
+<p>
+    @Html.ActionLink("新增", "Create", "UserInfo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("序號")
+        </th>
+        <th>
+            @Html.DisplayName("員工編號")
+        </th>
+        <th>
+            @Html.DisplayName("員工英文姓名")
+        </th>
+        <th>
+            @Html.DisplayName("職位")
+        </th>
+    </tr>
+    @{
+        int cnt = 0;
+    }
+    @for(int i = 0 ; i < Model.Count ; i++) {
+        var info = Model[i];
+    }
+    @foreach(var item in Model) {
+        {
+            cnt++;
+        }
+        <tr>
+            <td>
+                @Html.Label("seq", cnt.ToString())
+            </td>
+            <td>
+                @Html.DisplayFor(item2 => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserNameEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.ActionLink("編輯", "Edit", "UserInfo", new { id = item.UserID }, null) |
+                @Html.ActionLink("詳細資料", "Details", "UserInfo", new { id = item.UserID }, null) |
+                @Html.ActionLink("刪除", "Delete", "UserInfo", new { id = item.UserID }, new { onclick = "return confirm('確定要刪除此項目嗎？');" })
+
+            </td>
+        </tr>
+    }
+</table>
+
+@{
+    bool showCreateSuccess = TempData["CreateSuccess"] != null;
+    bool showCreateError = TempData["CreateError"] != null;
+    bool showUpdateSuccess = TempData["FromEditPage"] != null && (bool)TempData["FromEditPage"];
+}
+
+@if(showUpdateSuccess) {
+    <script>
+        alert("@TempData["UpdateSuccess"]");
+    </script>
+}
+
+@if(showCreateSuccess) {
+    <script>
+        alert("@TempData["CreateSuccess"]");
+    </script>
+}
+
+@if(showCreateError) {
+    <script>
+        alert("@TempData["CreateError"]");
+    </script>
+}
+
+
+
+
